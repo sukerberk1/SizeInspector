@@ -15,30 +15,36 @@ internal class Program
         }
         DirectoryInfo location = new(@args[0]);
 
-        long totalSizeBytes = 0;
+        
 
-        try
-        {
-            Console.WriteLine("Running...");
-            CalculateSize(ref totalSizeBytes, location);
-            double totalSizeGB = totalSizeBytes;
-            totalSizeGB /= Math.Pow(1024, 3);
-            Console.WriteLine($"Given directory: {location.FullName}; Its Size: {Math.Round(totalSizeGB, 2)} GB");
-        }
-        catch(UnauthorizedAccessException)
-        {
-            Console.WriteLine("One of analyzed files denied access. Try to run the program as an administrator.");
-        }
+        Console.WriteLine("Running...");
+        double Size = GetDirSize(location);
+        Console.WriteLine($"Given directory: {location.FullName}; Size: {Size} GB");
 
     }
 
+    /* Gets directories size in Gigabytes */
+    public static double GetDirSize(DirectoryInfo location, short precision = 2)
+    {
+        long totalSizeBytes = 0;
+        CalculateSize(ref totalSizeBytes, location);
+        double totalSizeGB = totalSizeBytes;
+        totalSizeGB = Math.Round(totalSizeGB / Math.Pow(1024, 3), precision);
+        return totalSizeGB;
+    }
 
-    static void CalculateSize(ref long size, DirectoryInfo location)
+
+    private static void CalculateSize(ref long size, DirectoryInfo location)
     {
         size += location.TotalFilesSize();
-        foreach (var directory in location.GetDirectories())
+        try
         {
-            CalculateSize(ref size, directory);
+            foreach (var directory in location.GetDirectories()) 
+                CalculateSize(ref size, directory);
+        }
+        catch
+        {
+            Console.WriteLine($"Could not get subdirectories of {location.FullName}. Therefore, not accounting for its subdirectories size.");
         }
     }
 

@@ -1,7 +1,8 @@
 {
   "profiles": {
     "SizeInspector": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "\"C:/Program Data\""
     }
   }
 }
