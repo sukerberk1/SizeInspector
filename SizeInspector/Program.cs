@@ -9,16 +9,22 @@ internal class Program
     {
         if (args.Length == 0)
         {
-            Console.WriteLine("Unknown location.");
-            Console.WriteLine("Usage: SizeInspector <location eg. C:/>");
+            Console.WriteLine("No location specified.");
+            Console.WriteLine("Usage: SizeInspector <location eg. \"C:/\">");
             return;
         }
         DirectoryInfo location = new(@args[0]);
+        if (!location.Exists)
+        {
+            Console.WriteLine("This location does not seem to exist.");
+            return;
+        }
 
-        
 
         Console.WriteLine("Running...");
+
         double Size = GetDirSize(location);
+
         Console.WriteLine($"Given directory: {location.FullName}; Size: {Size} GB");
 
     }
