@@ -1,0 +1,15 @@
+E:\projects\SizeInspector\SizeInspector\bin\Debug\net7.0\SizeInspector.exe
+E:\projects\SizeInspector\SizeInspector\bin\Debug\net7.0\SizeInspector.deps.json
+E:\projects\SizeInspector\SizeInspector\bin\Debug\net7.0\SizeInspector.runtimeconfig.json
+E:\projects\SizeInspector\SizeInspector\bin\Debug\net7.0\SizeInspector.dll
+E:\projects\SizeInspector\SizeInspector\bin\Debug\net7.0\SizeInspector.pdb
+E:\projects\SizeInspector\SizeInspector\obj\Debug\net7.0\SizeInspector.csproj.AssemblyReference.cache
+E:\projects\SizeInspector\SizeInspector\obj\Debug\net7.0\SizeInspector.GeneratedMSBuildEditorConfig.editorconfig
+E:\projects\SizeInspector\SizeInspector\obj\Debug\net7.0\SizeInspector.AssemblyInfoInputs.cache
+E:\projects\SizeInspector\SizeInspector\obj\Debug\net7.0\SizeInspector.AssemblyInfo.cs
+E:\projects\SizeInspector\SizeInspector\obj\Debug\net7.0\SizeInspector.csproj.CoreCompileInputs.cache
+E:\projects\SizeInspector\SizeInspector\obj\Debug\net7.0\SizeInspector.dll
+E:\projects\SizeInspector\SizeInspector\obj\Debug\net7.0\refint\SizeInspector.dll
+E:\projects\SizeInspector\SizeInspector\obj\Debug\net7.0\SizeInspector.pdb
+E:\projects\SizeInspector\SizeInspector\obj\Debug\net7.0\SizeInspector.genruntimeconfig.cache
+E:\projects\SizeInspector\SizeInspector\obj\Debug\net7.0\ref\SizeInspector.dll
