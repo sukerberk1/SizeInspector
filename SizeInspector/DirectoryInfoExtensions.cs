@@ -3,22 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static SizeInspector.Program;
 
-namespace SizeInspectorExtensionMethods;
-
-public static class DirectoryInfoExtensions
+namespace SizeInspector
 {
-    /* Function which returns total size of files in a directory. */
-    public static long TotalFilesSize(this DirectoryInfo folder) 
+    public static class DirectoryInfoExtensions
     {
-        try
+        /* Function which returns total size of files in a directory in bytes. */
+        public static long TotalFilesSize(this DirectoryInfo folder, LogOption logs)
         {
-            return folder.EnumerateFiles().Sum(f => f.Length);
+            try
+            {
+                return folder.EnumerateFiles().Sum(f => f.Length);
+            }
+            catch
+            {
+                if (logs == LogOption.ConsoleLogs) Console.WriteLine($"Could not proceed counting file size for directory {folder.FullName}.");
+                return 0;
+            }
         }
-        catch
+
+        // When specified output option, return double and different format instead.
+        public static double TotalFilesSize(this DirectoryInfo folder, LogOption logs, OutputOption output)
         {
-            Console.WriteLine($"Could not proceed counting file size for directory {folder.FullName}.");
-            return 0;
+            try
+            {
+                return Math.Round(folder.EnumerateFiles().Sum(f => f.Length) / Math.Pow(1024, (int)output), 2);
+            }
+            catch { return 0; }
         }
-    } 
+
+    }
 }
